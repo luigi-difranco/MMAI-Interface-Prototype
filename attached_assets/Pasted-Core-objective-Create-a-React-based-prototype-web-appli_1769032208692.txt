@@ -1,0 +1,29 @@
+Core objective: Create a React-based prototype web application (static, hostable on GitHub Pages) that demonstrates a professional, secure-looking interface and navigation for a Multi-Modal Artificial Intelligence (MMAI) platform used by a clinical/biomedical research facility to integrate EHR, radiologic imaging, and histopathology data.
+Requirements and scope (must be preserved exactly):
+	•	Frontend: React single-page application that showcases UI/UX for the MMAI platform. This is a prototype only (no real backend), but must include mock API endpoints and clear, well-commented code and documentation for future integration with Flask and/or Django backends and a PostgreSQL database.
+	•	Authentication: Implement a secure-feeling login workflow for admin accounts (mocked authentication). Admin users must be able to create, view, edit, disable, and delete sub-user accounts within the prototype. Include client-side validation and informative UI states (errors, loading, success). Document how to replace mocked auth with real backend auth.
+	•	Multi-user roles: Support at minimum two roles in the UI: admin and sub-user (researcher). Show role-restricted UI elements (e.g., admin user management pages vs. researcher upload/view pages).
+	•	Multi-modal file management: Provide UI components and flows to upload, list, preview, organize, and delete multi-modal research data types:
+	•	EHR (tabular/CSV or structured JSON)
+	•	Radiologic imaging (DICOM and common image formats)
+	•	Histopathology (high-resolution images like SVS/TIFF and common image formats) For the prototype, implement client-side handling and previews where feasible (e.g., render CSV preview, render images, show DICOM metadata viewer stub). Enforce configurable client-side file type and size validation and show error messages when limits are exceeded. Use mocked upload progress and storage.
+	•	Data interaction and visualization: Include mock components demonstrating connections to the MMAI platform:
+	•	A dashboard that summarizes available datasets by modality and user
+	•	Placeholder predictive-modeling actions (e.g., “Run model” button) that trigger mock API calls and display synthetic results/visualizations (charts, tables)
+	•	Visualization components appropriate for multimodal data (e.g., image viewer with zoom/pan, tabular EHR viewer, synchronized image + metadata panel)
+	•	UI/UX and professionalism: Design a clean, responsive, and accessible interface suitable for clinical/translational research users. Include clear navigation, status indicators, help/tooltips, and consistent styling. Ensure basic accessibility (keyboard navigation and semantic markup).
+	•	Governance alignment: In the UI and documentation, surface data governance considerations required for institutional and federal standards (e.g., data access controls, audit/logging placeholders, consent/PHI masking notes). Do not implement legal/compliance enforcement—only annotate the UI and code where those integrations should occur and how to plug them into backend services.
+	•	Static prototype and deployment: Build the project so it can be hosted as a static site on a github.io account. Provide build scripts and a short README with deployment steps for GitHub Pages.
+	•	Documentation and comments: Deliver inline code comments and a README that:
+	•	Explains project structure
+	•	Documents mock APIs and how to replace them with Flask/Django endpoints and PostgreSQL integration
+	•	Describes authentication flow and where to implement secure backend auth and audit logging
+	•	Lists file type/size limits and how to change them
+	•	Notes where governance controls (access control, de-identification, audit logs) must be implemented server-side
+	•	Includes instructions to run, build, and deploy to github.io
+Non-functional requirements:
+	•	Use modular, well-commented React components.
+	•	Implement client-side routing that mirrors expected production routes (login, dashboard, dataset pages, admin user management, upload flows).
+	•	Provide mock data fixtures for EHR, imaging metadata, and histopathology to demonstrate UI states (empty, populated, error).
+	•	Ensure the prototype demonstrates where and how to integrate with Flask/Django and PostgreSQL, without implementing backend code.
+Deliver a single React project repository structure ready for GitHub Pages hosting, with comprehensive README and inline comments mapping UI elements to backend integration points and governance requirements.
