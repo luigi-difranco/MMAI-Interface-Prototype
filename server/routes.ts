@@ -51,13 +51,22 @@ export async function registerRoutes(
   });
 
   app.put(api.users.update.path, async (req, res) => {
-      try {
-          const input = api.users.update.input.parse(req.body);
-          const user = await storage.updateUser(Number(req.params.id), input);
-          res.json(user);
-      } catch (e) {
-          res.status(400).json({ message: "Validation failed" });
-      }
+    try {
+      const input = api.users.update.input.parse(req.body);
+      const user = await storage.updateUser(Number(req.params.id), input);
+      res.json(user);
+    } catch (e) {
+      res.status(400).json({ message: "Validation failed" });
+    }
+  });
+
+  app.delete(api.users.delete.path, async (req, res) => {
+    try {
+      await storage.deleteUser(Number(req.params.id));
+      res.json({ message: "User deleted" });
+    } catch (e) {
+      res.status(404).json({ message: "User not found" });
+    }
   });
 
   // Datasets

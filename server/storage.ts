@@ -12,6 +12,7 @@ export interface IStorage {
   getUsers(): Promise<User[]>;
   createUser(user: InsertUser): Promise<User>;
   updateUser(id: number, user: Partial<InsertUser>): Promise<User>;
+  deleteUser(id: number): Promise<void>;
   
   // Datasets
   getDatasets(modality?: string): Promise<Dataset[]>;
@@ -149,6 +150,10 @@ export class MemStorage implements IStorage {
     const updatedUser = { ...user, ...updates };
     this.users.set(id, updatedUser);
     return updatedUser;
+  }
+
+  async deleteUser(id: number): Promise<void> {
+    this.users.delete(id);
   }
 
   async getDatasets(modality?: string): Promise<Dataset[]> {
